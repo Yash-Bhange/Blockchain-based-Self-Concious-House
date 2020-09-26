@@ -1,0 +1,18 @@
+.mainimg{
+    width:100%;
+    height:700px;
+    opacity: 0.4;
+}
+.text{
+    position: absolute;
+        z-index: 999;
+        margin: 0 auto;
+        left: 0;
+        right: 0;        
+        text-align: center;
+        top: 40%; /* Adjust this value to move the positioned div up and down */
+       
+        font-family: Arial,sans-serif;
+        color: #fff;
+        width: 60%;
+}

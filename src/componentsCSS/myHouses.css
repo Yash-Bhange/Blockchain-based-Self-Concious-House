@@ -1,0 +1,13 @@
+table,tbody{
+    border:1px solid black;
+}
+td{
+    padding: 2px 2px 2px 2px;
+    text-align: center;
+}
+a.link{
+    color:black
+}
+a.hover{
+    color:black
+}
