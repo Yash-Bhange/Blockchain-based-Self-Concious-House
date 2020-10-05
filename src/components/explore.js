@@ -17,11 +17,12 @@ constructor(props){
 
     this.go= this.go.bind(this);
     this.loadWeb3=this.loadWeb3.bind(this);
-
+    this.requestfunc= this.requestfunc.bind(this);
+    this.displayHouses= this.displayHouses.bind(this);
 
 }
 async componentWillMount(){
-    await this.loadWeb3()
+    await this.loadWeb3();
  
   
 }
@@ -44,27 +45,6 @@ async loadWeb3(){
     }
 
     
-/*
-var currentOwner= await window.web3.eth.getCoinbase();
-    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['5777'].address);
-
-    sch.methods.getHousesByOwner(currentOwner).call({from:currentOwner},(err,res)=>{
-        if(err){
-            console.log(err);
-        }else{
-     
-            this.setState({
-                housesarray:res[0],
-                housesarraylen:res[1]
-            })
-        }
-
-   
-    })
-
-
-*/
-
 }
    
 
@@ -75,7 +55,7 @@ async go(e){
     var currentOwner= await window.web3.eth.getCoinbase();
     const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['5777'].address);
 
-        if(searchvalue[0]=='0'&& searchvalue[1]=='x')
+        if(searchvalue[0]==='0'&& searchvalue[1]==='x')
         {   
                     
             sch.methods.getHousesByOwner(currentOwner).call({from:currentOwner},(err,res)=>{
@@ -87,12 +67,14 @@ async go(e){
                         housesarray:res[0],
                         housesarraylen:res[1]
                     })
+
+                    console.log("updated");
                 }
 
         
             })
              
-        }else if(searchvalue.length==6){
+        }else if(searchvalue.length===6){
             
             var pincode=parseInt(searchvalue);
             sch.methods.getHousesByPincode(pincode).call({from:currentOwner},(err,res)=>{
@@ -104,6 +86,9 @@ async go(e){
                         housesarray:res[0],
                         housesarraylen:res[1]
                     })
+
+                    this.displayHouses(currentOwner);   //function call
+                   
                 }
 
         
@@ -115,13 +100,109 @@ async go(e){
             alert("provide valid input")
 
         }
-        console.log(this.state.housesarray);
+        
     
 }
 
+
+
+      
+async displayHouses(currentOwner) {
+   
+    var housesarraylen=parseInt(this.state.housesarraylen);
+
+
+    var houses=this.state.housesarray;
+    console.log(houses);
+    const tryTable=document.getElementById('table');
+
+    while(tryTable.rows.length>1){
+        tryTable.deleteRow(1);
+    }
+   
+    const table=tryTable.getElementsByTagName('tbody')[0];
+
+     for(var v of houses){
+       
+         var row=table.insertRow();
+         for(var i=0;i<8;i++)
+         {
+            var col=row.insertCell(i);
+            var newText  = document.createElement('span');
+            if(i==5){
+                var date=new Date(v[i]*1000)
+                newText.innerHTML=date;
+            }else if(i==6){
+                
+                if(v[i]==0){ 
+
+                    
+                    var temnewText  = document.createElement('BUTTON');
+                    temnewText.innerHTML="click to Request";
+                    temnewText.key=v[0];
+                    temnewText.style.backgroundColor="lightgreen"
+                    temnewText.onclick=()=>{ 
+                        this.requestfunc(v[0],v[2]);
+                    };
+                    newText.appendChild(temnewText);
+
+
+                }else{
+                    newText.innerHTML="Requested";
+                }
+            }
+            else{
+                newText.innerHTML=v[i];
+            }
+            
+            col.appendChild(newText);
+         }
+         var col=row.insertCell(8);
+         var newText  = document.createElement('a');
+         newText.href='/viewHistory/'+v[0]
+         newText.innerHTML="View History";
+         col.appendChild(newText);
+
+       
+       
+    }
+}
+
+async requestfunc(house_id,owner){
+    var currentOwner= await window.web3.eth.getCoinbase();
+    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['5777'].address);
+    console.log(typeof currentOwner,typeof owner,currentOwner,owner)
+     if(owner.toString().toLowerCase()===currentOwner.toString()){
+
+        alert("You cannot request your own house");
+       
+     }
+     else{
+
+        sch.methods.requestHouse(house_id).send({from:currentOwner},(err,res)=>{
+
+            if(err){
+                alert(err);
+            }
+            else{
+                alert(res);
+            }
+        })
+
+     }
+   
+    
+}
+
+
+
     render(){
 
-        return(
+        return(  
+
+            <div>
+
+         
            
 
             <div id="container">
@@ -130,7 +211,29 @@ async go(e){
                             <button type="submit" class="search_button" onClick={this.go}><i class="fa fa-search"></i></button>
                         </div>
             </div>
-            
+
+
+            <div>
+            <table id="table" border="1px" >
+                        <tbody>
+                          
+                          <tr>
+                                <td>ID</td><td>House Name</td><td>Current Owner</td><td>Pin Code</td><td>Address</td><td>Creation Date</td><td>Status</td><td>History Count</td><td>More Info</td> 
+                          </tr>
+                        </tbody>
+                        
+
+
+                    </table>
+            </div>
+
+
+
+
+
+
+               
+            </div>
 
         );
             

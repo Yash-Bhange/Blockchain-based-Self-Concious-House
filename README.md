@@ -1,4 +1,4 @@
-1)pull the code in specific folder(ex:selfConciousHouse)
+1)pull the code in specific folder(ex:selfConciousHouse) 
 2)run npm install to install dependencies
 3)open local blockchian i.e ganache (will provide u 10 accounts )
 4) run command truffle compile in selfConciousHouse folder

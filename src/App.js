@@ -6,6 +6,7 @@ import AddHistory from './components/addHistory.js'
 import  MyHouses1 from './components/myHouses1.js'
 import  ViewHistory from './components/viewHistory.js'
 import Explore from './components/explore.js'
+import Requests from './components/requests.js'
 
 import logo1 from './logo2.jpeg'
 import './App.css';
@@ -26,10 +27,10 @@ class App extends Component {
         abi:'',
         add:''
       },
-      requestCount:'0'
+    
   };
 
-  this.requestFuncCall= this.requestFuncCall.bind(this);
+
 }
 
 async componentWillMount(){
@@ -93,17 +94,6 @@ async loadBlockchainData() {
 }
 
 
-requestFuncCall(e){
-  e.preventDefault();
-  if(parseInt(this.state.requestCount)==0)
-  {
-    alert("You dont have any request");
-  }
-  else{
-    window.location('/requests');
-  }
-}
-
 
 
 
@@ -139,7 +129,7 @@ render(){
           </div>
           <div class="rightAlign">
           <a class="rightlinks"><a href="/explore" class="allLinkColor"><span><i class="fa fa-cart-plus"></i>&nbsp;Explore</span></a></a>
-          <a class="rightlinks"><a  class="allLinkColor" onClick={this.requestFuncCall}> <span><i class="fa fa-bell"></i>&nbsp;Requests</span><span class="badge">{this.state.requestCount}</span></a></a>
+          <a class="rightlinks"><a href="/requests"  class="allLinkColor" > <span><i class="fa fa-bell"></i>&nbsp;Requests</span></a></a>
           <a class="rightlinks"> <a href="/myHouses" class="allLinkColor"><span><i class="fa fa-home"></i>&nbsp;My Houses</span></a></a>
             
           </div>
@@ -152,7 +142,7 @@ render(){
          <Route exact path="/addHouse" component={()=><AddHouse AbiAndAddress={this.state.AbiAndAdd}/>} />
          <Route exact path="/addHistory" component={()=><AddHistory AbiAndAddress={this.state.AbiAndAdd}/>} />
          <Route exact path="/myHouses" component={()=><MyHouses1 AbiAndAddress={this.state.AbiAndAdd}/>} />
-         <Route exact path="/requests" component={()=><Home name="yash"/>} />
+         <Route exact path="/requests" component={()=><Requests AbiAndAddress={this.state.AbiAndAdd}/>} />
          <Route exact path="/viewHistory/:houseId"  component={()=><ViewHistory AbiAndAddress={this.state.AbiAndAdd}/>}  />
          <Route exact path="/explore" component={()=>< Explore accounts={this.state.account}/>} />
          

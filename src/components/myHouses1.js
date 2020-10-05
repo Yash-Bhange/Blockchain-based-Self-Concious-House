@@ -129,14 +129,10 @@ async componentWillMount(){
                         {this.displayHouses()}
 
 
-                    </table >
+                    </table>
 
                        
-                            
-
-                           
-    
-                    </div>
+                </div>
                       
     
                  </div>    
