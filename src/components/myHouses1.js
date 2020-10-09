@@ -71,6 +71,12 @@ async componentWillMount(){
     var houses=this.state.housesarray;
     console.log(houses);
 
+     if(housesarraylen==0)
+     {
+         window.alert("you don't own any house");
+         window.location.href="/home"
+     }
+
      for(var v of houses){
         
         const table=document.getElementById('table').getElementsByTagName('tbody')[0];

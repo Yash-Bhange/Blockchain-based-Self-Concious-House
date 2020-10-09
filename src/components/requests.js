@@ -109,6 +109,11 @@ async componentWillMount(){
 
 
     var housesarraylen=parseInt(this.state.housesarraylen);
+    if(housesarraylen==0)
+    {
+        window.alert("you don't have any house");
+        window.location.href="/home"
+    }
     var houses=this.state.housesarray;
     console.log(houses);
     const tryTable=document.getElementById('table');
@@ -164,6 +169,12 @@ async componentWillMount(){
             }
            
 
+        }
+        var cnt=parseInt(this.state.count);
+        if(cnt==0)
+        {    window.location.href="/home"
+            window.alert("you don't have any request");
+            
         }
 
       

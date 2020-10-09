@@ -112,6 +112,8 @@ async displayHouses(currentOwner) {
    
     var housesarraylen=parseInt(this.state.housesarraylen);
 
+ 
+ 
 
     var houses=this.state.housesarray;
     console.log(houses);
