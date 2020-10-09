@@ -69,6 +69,7 @@ async go(e){
                     })
 
                     console.log("updated");
+                    this.displayHouses(currentOwner);
                 }
 
         
@@ -161,6 +162,7 @@ async displayHouses(currentOwner) {
          var newText  = document.createElement('a');
          newText.href='/viewHistory/'+v[0]
          newText.innerHTML="View History";
+         newText.style.color="blue";
          col.appendChild(newText);
 
        
@@ -213,7 +215,7 @@ async requestfunc(house_id,owner){
             </div>
 
 
-            <div>
+            <div id="tablesection">
             <table id="table" border="1px" >
                         <tbody>
                           

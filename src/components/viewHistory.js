@@ -134,7 +134,7 @@ displayHistory() {
                        
                 
                 </div>
-                <div>
+                <div id="tablesection">
 
                 <table id="table" border="1px" >
                         <tbody>

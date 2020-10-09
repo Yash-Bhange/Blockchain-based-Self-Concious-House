@@ -218,3 +218,31 @@ a:active{
  }
 
 }
+
+
+.footer{
+background-color:#1a1a2e ;
+color:white;
+height: 150px;
+}
+.aboutUs{
+  float:right;
+  margin-right: 10%;
+  margin-top: 1%;
+}
+.legal{
+  float:right;
+  margin-right: 10%;
+  margin-top: 1%;
+}
+.followus{
+  float:right;
+  margin-right: 10%;
+  margin-top: 1%;
+}
+.footerintro{
+  float:left;
+  margin-left: 10%;
+  margin-top: 2%;
+  text-align:center;
+}

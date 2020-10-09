@@ -101,6 +101,7 @@ async componentWillMount(){
          var newText  = document.createElement('a');
          newText.href='/viewHistory/'+v[0]
          newText.innerHTML="View History";
+         newText.style.color="blue";
          col.appendChild(newText);
 
        
@@ -118,8 +119,8 @@ async componentWillMount(){
 
                 <div>   
                     
-                    <div >
-                    <table id="table" border="1px" >
+                    <div id="tablesection">
+                    <table id="table" border="1px"  >
                         <tbody>
                             <tr>
                                 <td>ID</td><td>House Name</td><td>Current Owner</td><td>Pin Code</td><td>Address</td><td>Creation Date</td><td>Status</td><td>History Count</td><td>More Info</td>

@@ -1,5 +1,6 @@
 table,tbody{
     border:1px solid black;
+
 }
 td{
     padding: 2px 2px 2px 2px;
@@ -10,4 +11,7 @@ a.link{
 }
 a.hover{
     color:black
+}
+#tablesection{
+    min-height: 500px;
 }

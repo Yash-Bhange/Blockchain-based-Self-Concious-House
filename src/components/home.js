@@ -17,15 +17,12 @@ class home extends Component{
     render(){
 
         return(  
-            <div>
+          
                 <div>
                 <img class="mainimg" src={pic}></img>
                 <a href="#test"><h1 class="text">A self-conscious house: tracking its lifecycle</h1></a>
                 
-                </div>
-                <div id="test">
-                         <img class="mainimg" src={pic}></img>
-                </div>
+              
 
              </div>    
           

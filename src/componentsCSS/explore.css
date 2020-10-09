@@ -40,3 +40,6 @@
 .search_button:hover {
   background-color: hsl(0, 0%, 85%);
 }
+#tablesection{
+  min-height: 500px;
+}

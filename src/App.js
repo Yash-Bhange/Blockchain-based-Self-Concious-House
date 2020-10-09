@@ -153,9 +153,40 @@ render(){
      
 
       
-     <div class="footer">
-       footer here
-     </div>
+          <div class="footer">
+                
+
+                <div class="followus">
+                  <b> Follow US</b> <br></br> <br></br>
+                  Our story<br></br> 
+                  Benefits<br></br>  
+                  FAQ<br></br> 
+                        
+                </div>
+
+                <div class="legal">
+                  <b> Legal</b> <br></br> <br></br>
+                  Our story<br></br> 
+                  Benefits<br></br>  
+                  FAQ<br></br> 
+                        
+                </div>
+                <div class="aboutUs">
+                  <b>About Us </b> <br></br> <br></br>
+                  Our story<br></br>
+                  Benefits<br></br>  
+                  FAQ<br></br> 
+                        
+                </div>
+                <div class="footerintro">
+                <b>Self-Conscious House</b> <br></br>
+                 Maintain your house records with Blockchain
+                
+                </div>
+
+               
+               
+          </div>
              
     </div>
 
