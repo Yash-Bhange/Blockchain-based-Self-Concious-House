@@ -145,6 +145,7 @@ render(){
          <Route exact path="/requests" component={()=><Requests AbiAndAddress={this.state.AbiAndAdd}/>} />
          <Route exact path="/viewHistory/:houseId"  component={()=><ViewHistory AbiAndAddress={this.state.AbiAndAdd}/>}  />
          <Route exact path="/explore" component={()=>< Explore accounts={this.state.account}/>} />
+         <Redirect to="/home" />
          
           
   </Switch>
@@ -158,17 +159,17 @@ render(){
 
                 <div class="followus">
                   <b> Follow US</b> <br></br> <br></br>
-                  Our story<br></br> 
-                  Benefits<br></br>  
-                  FAQ<br></br> 
+                  Instagram<br></br> 
+                  LinkedIn<br></br>  
+                  Facebook<br></br> 
                         
                 </div>
 
                 <div class="legal">
                   <b> Legal</b> <br></br> <br></br>
-                  Our story<br></br> 
-                  Benefits<br></br>  
-                  FAQ<br></br> 
+                  Terms & condition<br></br> 
+                  Privacy policy<br></br>  
+                 
                         
                 </div>
                 <div class="aboutUs">
