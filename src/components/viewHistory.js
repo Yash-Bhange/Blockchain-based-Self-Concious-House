@@ -90,7 +90,8 @@ displayHistory() {
         const table=document.getElementById('table').getElementsByTagName('tbody')[0];
        // console.log("1",v);
          var row=table.insertRow();
-         for(var i=0;i<7;i++)
+         var i=0;
+         for(;i<7;i++)
          { 
              
             var col=row.insertCell(i);
@@ -105,6 +106,20 @@ displayHistory() {
             
             col.appendChild(newText);
          }
+         while(i<9){
+         var col=row.insertCell(i);
+         var newText  = document.createElement('a');
+         var hash='https://ipfs.infura.io/ipfs/'+ v[i];
+         newText.href=hash
+         newText.innerHTML="click to see"
+         
+         newText.style.color="blue";
+         col.appendChild(newText);
+         i++;
+         }
+
+
+
 
       
 
@@ -139,7 +154,7 @@ displayHistory() {
                 <table id="table" border="1px" >
                         <tbody>
                             <tr id="heading">
-                            <td>History ID</td> <td>House ID</td><td>Current Owner</td><td>Title</td><td>Description</td><td>Contarctor </td><td>Creation Date</td>
+                            <td>History ID</td> <td>House ID</td><td>Current Owner</td><td>Title</td><td>Description</td><td>Contarctor </td><td>Creation Date</td><td>Before Image</td><td>After Image</td>
                             </tr>
 
                         </tbody>

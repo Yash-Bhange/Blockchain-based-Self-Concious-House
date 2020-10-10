@@ -17,6 +17,8 @@ struct History{
     string desc;
     string contractorName;
     uint256 historyDate;
+    string beforeImageHash;
+    string afterImageHash;
 
 
 
@@ -48,7 +50,7 @@ struct House{
  }
 
 House [] public house;
-History [][20] public history;
+History [][50] public history;
 
 
 mapping(address=>uint) public getHousesByOwnerCount;
@@ -67,12 +69,12 @@ constructor() public{
 
 
 
-function addHouse(string memory nm,uint256 pc,string memory ha,uint256 hd) public{
+function addHouse(string memory nm,uint256 pc,string memory ha,uint256 hd,string memory _imageHash) public{
    
     house.push(House(houseCount,nm,msg.sender,pc,ha,hd,HouseStatus.Available,0,address(0x0)));
     
     
-    addHouseHistory(houseCount,"Deploy-House","This house was deployed on given date !","no contractor availale",hd);
+    addHouseHistory(houseCount,"Deploy-House","This house was deployed on given date !","no contractor availale",hd,_imageHash,_imageHash);
     houseCount++;
     
     if(getHousesByOwnerCount[msg.sender]==0){
@@ -159,18 +161,18 @@ function getHousesByPincode(uint256 _pinCode)public view returns(House[] memory,
 }
 
 
-function addHouseHistory(uint _houseId,string memory title,string memory desc,string memory cn,uint256 hd) public {
+function addHouseHistory(uint _houseId,string memory title,string memory desc,string memory cn,uint256 hd,string memory _befImgHash,string memory _aftImgHash) public {
   
     
-    history[_houseId].push(History(historyCount,_houseId,msg.sender,title,desc,cn,hd));
+    history[_houseId].push(History(historyCount,_houseId,msg.sender,title,desc,cn,hd,_befImgHash,_aftImgHash));
     house[_houseId].totalHistoryCount++;
     historyCount++;
 } 
 
 function addHouseHistoryThroughAccept(uint _houseId,string memory title,string memory desc,string memory cn,uint256 hd,address newOwner) public {
   
-    
-    history[_houseId].push(History(historyCount,_houseId,newOwner,title,desc,cn,hd));
+    string memory t1="not available";
+    history[_houseId].push(History(historyCount,_houseId,newOwner,title,desc,cn,hd,t1,t1));
     house[_houseId].totalHistoryCount++;
     historyCount++;
 } 

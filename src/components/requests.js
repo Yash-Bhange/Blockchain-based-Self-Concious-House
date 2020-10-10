@@ -170,12 +170,7 @@ async componentWillMount(){
            
 
         }
-        var cnt=parseInt(this.state.count);
-        if(cnt==0)
-        {    window.location.href="/home"
-            window.alert("you don't have any request");
-            
-        }
+    
 
       
     

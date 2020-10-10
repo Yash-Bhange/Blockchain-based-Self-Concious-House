@@ -2,6 +2,8 @@ import React ,{Component} from 'react';
 import '../componentsCSS/addHistory.css';
 import'bootstrap/dist/css/bootstrap.css';
 import Web3 from 'web3';
+const ipfsClient =require('ipfs-http-client')
+const ipfs=new ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' })
 
 
 class addHistory extends Component{
@@ -12,9 +14,13 @@ class addHistory extends Component{
 
     
     this.state = {
+        buffer1:'',
+        buffer2:'',
     
     };
    this.submit= this.submit.bind(this);
+   this.captureFile1= this.captureFile1.bind(this);
+   this.captureFile2= this.captureFile2.bind(this);
  }
 async componentWillMount(){
         await this.loadWeb3()
@@ -39,6 +45,29 @@ async componentWillMount(){
       
       }
 
+      async captureFile1(event){
+        event.preventDefault();
+        const file = event.target.files[0]
+        const reader = new window.FileReader()
+        reader.readAsArrayBuffer(file)
+        reader.onloadend = () => {
+          this.setState({ buffer1: Buffer(reader.result) })
+          console.log('buffer', this.state.buffer)
+        }
+
+    }
+    async captureFile2(event){
+        event.preventDefault();
+        const file = event.target.files[0]
+        const reader = new window.FileReader()
+        reader.readAsArrayBuffer(file)
+        reader.onloadend = () => {
+          this.setState({ buffer2: Buffer(reader.result) })
+          console.log('buffer', this.state.buffer)
+        }
+
+    }
+
 
     async submit(e){
         e.preventDefault();
@@ -59,7 +88,10 @@ async componentWillMount(){
             {
                  
                     
-
+                const beforeImage = await ipfs.add(this.state.buffer1)
+                var beforeImageHash=beforeImage.cid.string;
+                const afterImage = await ipfs.add(this.state.buffer2)
+                var afterImageHash=afterImage.cid.string;
                     var  currdate=Math.floor(new Date().getTime()/1000);
                    // console.log(currdate);
 
@@ -70,7 +102,7 @@ async componentWillMount(){
 
                     const sch = new window.web3.eth.Contract(this.props.AbiAndAddress.abi,this.props.AbiAndAddress.add);
 
-                    sch.methods.addHouseHistory(houseId,title,description,contractorName,currdate).send({from:curraddress},(err,hash)=>{
+                    sch.methods.addHouseHistory(houseId,title,description,contractorName,currdate,beforeImageHash,afterImageHash).send({from:curraddress},(err,hash)=>{
                         
                         if(err){
                             alert(err);
@@ -111,6 +143,14 @@ async componentWillMount(){
                                 <textarea id="description"  placeholder="Enter description" required></textarea> <br></br><br></br>
                                 <label>Contractor name: </label>
                                 <input  type="text" id="contractorName"  placeholder="Enter contractor name" required/>  <br></br><br></br>
+                                <label>Before image: </label>
+                                <input type="file" id="beforeImage" accept="image/*" onChange={this.captureFile1}></input> <br></br><br></br>
+                                <label>After image: </label>
+                                <input type="file" id="afterImage" accept="image/*" onChange={this.captureFile2}></input> <br></br><br></br>
+
+
+
+
                                 <button type="submit" >Add</button>
                        </fieldset>
                         
