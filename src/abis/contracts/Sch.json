@@ -17359,15 +17359,15 @@
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
   "networks": {
-    "5777": {
+    "3": {
       "events": {},
       "links": {},
-      "address": "0x3FA9409DFBf9986F49565dC06Be0a8ff727dc93F",
-      "transactionHash": "0xa0e572e61335b73a78b60430c531b5603954fbca2d3c178709d0284553f2c7ec"
+      "address": "0xd6Fda783D563a9EEF4a627331d2F4ae1E7C8bBfd",
+      "transactionHash": "0x466f94be73807c42761545a7bdb122de6c64992c0a838f22c5e012dd3b41539e"
     }
   },
   "schemaVersion": "3.2.3",
-  "updatedAt": "2020-10-10T10:03:50.710Z",
+  "updatedAt": "2020-10-15T16:34:15.795Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

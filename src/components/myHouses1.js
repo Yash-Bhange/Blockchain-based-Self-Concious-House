@@ -42,7 +42,7 @@ async componentWillMount(){
 
         var currentOwner= await window.web3.eth.getCoinbase();
 
-        const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['5777'].address);
+        const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['3'].address);
 
         sch.methods.getHousesByOwner(currentOwner).call({from:currentOwner},(err,res)=>{
             if(err){

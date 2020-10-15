@@ -53,7 +53,7 @@ async go(e){
     var searchvalue=document.getElementById('searchValue').value;
     //console.log(typeof searchvalue);
     var currentOwner= await window.web3.eth.getCoinbase();
-    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['5777'].address);
+    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['3'].address);
 
         if(searchvalue[0]==='0'&& searchvalue[1]==='x')
         {   

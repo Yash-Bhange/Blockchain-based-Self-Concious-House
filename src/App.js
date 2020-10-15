@@ -12,7 +12,7 @@ import logo1 from './logo2.jpeg'
 import './App.css';
 import Web3 from 'web3';
 
-
+//mechanic luxury six risk desk wink major capable seed animal beef ghost
 import Sch from './abis/contracts/Sch.json';
 
 class App extends Component {

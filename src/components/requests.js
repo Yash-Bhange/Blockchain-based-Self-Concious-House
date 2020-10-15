@@ -44,7 +44,7 @@ async componentWillMount(){
 
         var currentOwner= await window.web3.eth.getCoinbase();
 
-        const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['5777'].address);
+        const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['3'].address);
 
         sch.methods.getHousesByOwner(currentOwner).call({from:currentOwner},(err,res)=>{
             if(err){
@@ -72,7 +72,7 @@ async componentWillMount(){
 
  accept(id,currentOwner,RequestedOwner,dt){
 
-    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['5777'].address);
+    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['3'].address);
     sch.methods.agreeHouse(id,RequestedOwner,dt).send({from:currentOwner},(err,res)=>{
 
         if(err)
@@ -89,7 +89,7 @@ async componentWillMount(){
 
  reject(id,currentOwner){
 
-    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['5777'].address);
+    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['3'].address);
     sch.methods.disAgreeHouse(id).send({from:currentOwner},(err,res)=>{
 
         if(err)
