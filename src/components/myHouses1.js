@@ -42,7 +42,7 @@ async componentWillMount(){
 
         var currentOwner= await window.web3.eth.getCoinbase();
 
-        const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['3'].address);
+        const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['3'].address);    //if ropsten use id as '3'  , if local ganache us ID as '5777'
 
         sch.methods.getHousesByOwner(currentOwner).call({from:currentOwner},(err,res)=>{
             if(err){

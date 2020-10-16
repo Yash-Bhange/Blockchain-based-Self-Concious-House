@@ -10,7 +10,7 @@ class addHistory extends Component{
  
     constructor(props){
     super(props);
-
+    console.log(this.props.AbiAndAddress.add);
 
     
     this.state = {
