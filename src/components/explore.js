@@ -181,9 +181,10 @@ async requestfunc(house_id,owner){
         alert("You cannot request your own house");
        
      }
-     else{
+     else{ 
+        var  currdate=Math.floor(new Date().getTime()/1000);
 
-        sch.methods.requestHouse(house_id).send({from:currentOwner},(err,res)=>{
+        sch.methods.requestHouse(house_id,currdate).send({from:currentOwner},(err,res)=>{
 
             if(err){
                 alert(err);

@@ -59,7 +59,13 @@ async loadWeb3(){
 
 async loadBlockchainData() {
   const web3 = window.web3
+  const accounts = await web3.eth.getAccounts()
   
+   
+  this.setState({
+   
+    currentAccount: accounts[0]
+  })
 
   const networkId = await web3.eth.net.getId()
   const networkData = Sch.networks[networkId]

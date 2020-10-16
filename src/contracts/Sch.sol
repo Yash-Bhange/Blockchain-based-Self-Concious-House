@@ -49,12 +49,24 @@ struct House{
 
  }
 
+ struct OutgoingRequest{
+     uint houseId;
+     string houseName;
+     uint status;                //0-> pending  1->accepted   2->rejected
+     uint256 dateOfReq;
+ }
+
 House [] public house;
 History [][50] public history;
 
 
 mapping(address=>uint) public getHousesByOwnerCount;
 mapping(uint256=>uint) public getHousesByPincodeCount;
+
+//outgoing request
+mapping(address=>uint)public  OutgoingRequestMapCount;
+mapping(address=>OutgoingRequest[]) public OutgoingRequestMap;
+
 
 
 constructor() public{
@@ -74,7 +86,7 @@ function addHouse(string memory nm,uint256 pc,string memory ha,uint256 hd,string
     house.push(House(houseCount,nm,msg.sender,pc,ha,hd,HouseStatus.Available,0,address(0x0)));
     
     
-    addHouseHistory(houseCount,"Deploy-House","This house was deployed on given date !","no contractor availale",hd,_imageHash,_imageHash);
+    addHouseHistory(houseCount,"Deploy-House","This house was deployed on given date !","---",hd,_imageHash,_imageHash);
     houseCount++;
     
     if(getHousesByOwnerCount[msg.sender]==0){
@@ -192,11 +204,16 @@ function getHouseHistory(uint _houseId)public view returns(History[] memory,uint
     
 }
 
-function requestHouse(uint _houseId)public {
+function requestHouse(uint _houseId,uint256 hd)public {
 
     House storage _temHouse=house[_houseId];
     _temHouse.houseStatus=HouseStatus.Requested;
     _temHouse.RequestedUser=address(msg.sender);
+
+    string memory houseName= _temHouse.name;
+
+    OutgoingRequestMap[address(msg.sender)].push(OutgoingRequest(_houseId,houseName,0,hd));
+    OutgoingRequestMapCount[address(msg.sender)]=OutgoingRequestMapCount[address(msg.sender)]+1;
 }
 
 function agreeHouse(uint _houseId ,address _newOwner,uint256 hd)public {
@@ -216,16 +233,44 @@ function agreeHouse(uint _houseId ,address _newOwner,uint256 hd)public {
     _temHouse.currentOwner=_newOwner;
     
     string memory desc="transfer takes place from previous owner to new owner";
-    addHouseHistoryThroughAccept(_houseId,"Ownership Transfer",desc,"no contractor availale",hd,_newOwner);
+    addHouseHistoryThroughAccept(_houseId,"Ownership Transfer",desc,"---",hd,_newOwner); 
+
+    //outgoing request handler
+
+    uint count=OutgoingRequestMapCount[address(_newOwner)];
+
+    for(uint i=0;i<count;i++){
+
+        OutgoingRequest storage outgoingstruct=OutgoingRequestMap[address(_newOwner)][i];
+        if(outgoingstruct.houseId==_houseId && outgoingstruct.status==0){
+
+            outgoingstruct.status=1;
+            outgoingstruct.dateOfReq=hd;
+        }
+    }
+    
     
 }
 
 
-function disAgreeHouse(uint _houseId)public {
+function disAgreeHouse(uint _houseId,address _newOwner,uint256 hd)public {
 
     House storage _temHouse=house[_houseId];
     _temHouse.houseStatus=HouseStatus.Available;
     _temHouse.RequestedUser=address(0x0);
+
+    //outgoing request handler
+    uint count=OutgoingRequestMapCount[address(_newOwner)];
+
+    for(uint i=0;i<count;i++){
+
+        OutgoingRequest storage outgoingstruct=OutgoingRequestMap[address(_newOwner)][i];
+        if(outgoingstruct.houseId==_houseId && outgoingstruct.status==0){
+
+            outgoingstruct.status=2;
+             outgoingstruct.dateOfReq=hd;
+        }
+    }
 
 }
 

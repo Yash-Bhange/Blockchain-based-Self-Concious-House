@@ -87,10 +87,10 @@ async componentWillMount(){
 
  }
 
- reject(id,currentOwner){
+ reject(id,currentOwner,RequestedOwner,dt){
 
     const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['3'].address);
-    sch.methods.disAgreeHouse(id).send({from:currentOwner},(err,res)=>{
+    sch.methods.disAgreeHouse(id,RequestedOwner,dt).send({from:currentOwner},(err,res)=>{
 
         if(err)
         {
@@ -161,7 +161,7 @@ async componentWillMount(){
                 temnewText2.innerHTML="Reject";
                 temnewText2.style.backgroundColor="lightgreen"
                 temnewText2.onclick=()=>{ 
-                    this.reject(v[0],currentOwner);
+                    this.reject(v[0],currentOwner,v[8],currdate);
                 };
                 newText2.appendChild(temnewText2);
                 col1.appendChild(newText2);
