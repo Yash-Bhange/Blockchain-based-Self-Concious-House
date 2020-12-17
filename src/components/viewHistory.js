@@ -1,6 +1,6 @@
 import React ,{Component} from 'react';
 import Sch from '../abis/contracts/Sch.json';
-import'bootstrap/dist/css/bootstrap.css';
+
 import '../componentsCSS/viewHistory.css';
 import Web3 from 'web3';
 
@@ -42,8 +42,8 @@ async componentWillMount(){
         }
 
         var currentOwner= await window.web3.eth.getCoinbase();
-
-        const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['3'].address);
+        const networkId = await window.web3.eth.net.getId();
+        const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks[networkId].address);
 
         // console.log(window.location.href);
          var loc=window.location.href;

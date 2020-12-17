@@ -1,6 +1,6 @@
 import React ,{Component} from 'react';
 import '../componentsCSS/requests.css';
-import'bootstrap/dist/css/bootstrap.css';
+
 import Web3 from 'web3';
 import Sch from '../abis/contracts/Sch.json';
 
@@ -43,8 +43,8 @@ async componentWillMount(){
         }
 
         var currentOwner= await window.web3.eth.getCoinbase();
-
-        const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['3'].address);
+        const networkId = await window.web3.eth.net.getId();
+        const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks[networkId].address);
 
         sch.methods.getHousesByOwner(currentOwner).call({from:currentOwner},(err,res)=>{
             if(err){
@@ -70,9 +70,10 @@ async componentWillMount(){
  }
 
 
- accept(id,currentOwner,RequestedOwner,dt){
-
-    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['3'].address);
+ async accept(id,currentOwner,RequestedOwner,dt){
+   
+    const networkId = await window.web3.eth.net.getId();
+    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks[networkId].address);
     sch.methods.agreeHouse(id,RequestedOwner,dt).send({from:currentOwner},(err,res)=>{
 
         if(err)
@@ -87,9 +88,9 @@ async componentWillMount(){
 
  }
 
- reject(id,currentOwner,RequestedOwner,dt){
-
-    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['3'].address);
+ async reject(id,currentOwner,RequestedOwner,dt){
+    const networkId = await window.web3.eth.net.getId();
+    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks[networkId].address);
     sch.methods.disAgreeHouse(id,RequestedOwner,dt).send({from:currentOwner},(err,res)=>{
 
         if(err)
@@ -111,8 +112,8 @@ async componentWillMount(){
     var housesarraylen=parseInt(this.state.housesarraylen);
     if(housesarraylen==0)
     {
-        window.alert("you don't have any house");
-        window.location.href="/home"
+       // window.alert("you don't have any house");
+       // window.location.href="/home"
     }
     var houses=this.state.housesarray;
     console.log(houses);
@@ -185,20 +186,62 @@ async componentWillMount(){
 
 
                 <div>   
-                    
-                                <div id="tablesection">
-                        <table id="table" border="1px" >
-                                    <tbody>
-                                    
-                                    <tr>
-                                            <td>ID</td><td>House Name</td> <td>Requesting user</td> <td>Status</td>
-                                    </tr>
-                                    </tbody>
-                                    
+                        <div id="leftsection">  
+                        <fieldset>
+
+                        <legend>Incoming Requests</legend>
+
+                        <div id="tablesection1">
+                                        <table id="table" border="1px" >
+                                            <tbody>
+                                            
+                                            <tr>
+                                                    <td>ID</td><td>House Name</td> <td>Requesting user</td> <td>Status</td>
+                                            </tr>
+                                            </tbody>
+                                            
 
 
-                                </table>
+                                        </table>
+                         </div>
+                        </fieldset>
+
                         </div>
+                        
+
+                        
+                        
+
+
+
+
+                        <div id="rightsection"> 
+   
+                                
+                                <fieldset>
+                                <legend>Outgoing Requests</legend>
+                                        <div id="tablesection1">
+                                                <table id="table1" border="1px" >
+                                                    <tbody>
+                                                    
+                                                    <tr>
+                                                            <td>ID</td><td>House Name</td> <td>Status</td> <td>Date</td>
+                                                    </tr>
+                                                    </tbody>
+                                                    
+
+
+                                                </table>
+                                        </div>
+                                </fieldset>
+
+
+                        </div>
+
+                        <div id="bottomspace">
+
+                        </div>
+
                       
     
                  </div>    

@@ -1,7 +1,7 @@
 import React ,{Component} from 'react';
 import '../componentsCSS/addHouse.css';
-import'bootstrap/dist/css/bootstrap.css';
 import Web3 from 'web3';
+import Sch from '../abis/contracts/Sch.json';
 const ipfsClient =require('ipfs-http-client')
 const ipfs=new ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' })
 
@@ -84,10 +84,11 @@ async componentWillMount(){
 
                     var curraddress=await window.web3.eth.getCoinbase()
                    
-              
+                    console.log(curraddress);
+                     
+                    const networkId = await window.web3.eth.net.getId();
 
-
-                    const sch = new window.web3.eth.Contract(this.props.AbiAndAddress.abi,this.props.AbiAndAddress.add);
+                    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks[networkId].address);
 
                     sch.methods.addHouse(name,pincode,address,currdate,imgHash).send({from:curraddress},(err,hash)=>{
                         
@@ -96,7 +97,7 @@ async componentWillMount(){
 
                         }
                         else{
-                            alert(hash);
+                            alert("Sucess !");
                         }
 
                     })

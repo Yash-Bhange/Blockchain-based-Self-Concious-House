@@ -1,3 +1,15 @@
-#tablesection{
+
+#leftsection{
+    float:left;
+    margin-left: 20px;
+    text-align: center;
+}
+#rightsection{
+
+    float:right;
+    margin-right: 20px;
+    text-align: center;
+}
+#bottomspace{
     min-height: 500px;
 }

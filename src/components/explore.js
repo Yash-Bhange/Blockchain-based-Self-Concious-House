@@ -8,7 +8,7 @@ class explore extends Component{
  
 constructor(props){
     super(props);
-    console.log(this.props.accounts);
+    
     
     this.state = {
         housesarray:'',
@@ -53,7 +53,8 @@ async go(e){
     var searchvalue=document.getElementById('searchValue').value;
     //console.log(typeof searchvalue);
     var currentOwner= await window.web3.eth.getCoinbase();
-    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['3'].address);
+    const networkId = await window.web3.eth.net.getId();
+    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks[networkId].address);
 
         if(searchvalue[0]==='0'&& searchvalue[1]==='x')
         {   
@@ -110,13 +111,8 @@ async go(e){
       
 async displayHouses(currentOwner) {
    
-    var housesarraylen=parseInt(this.state.housesarraylen);
-
- 
- 
-
     var houses=this.state.housesarray;
-    console.log(houses);
+    //console.log(houses);
     const tryTable=document.getElementById('table');
 
     while(tryTable.rows.length>1){
@@ -129,7 +125,8 @@ async displayHouses(currentOwner) {
        
          var row=table.insertRow();
          for(var i=0;i<8;i++)
-         {
+         {  
+           
             var col=row.insertCell(i);
             var newText  = document.createElement('span');
             if(i==5){
@@ -139,20 +136,25 @@ async displayHouses(currentOwner) {
                 
                 if(v[i]==0){ 
 
-                    
-                    var temnewText  = document.createElement('BUTTON');
+                    newText.innerHTML="Available";
+                    /*var temnewText=document.createElement('BUTTON');
                     temnewText.innerHTML="click to Request";
                     temnewText.key=v[0];
+                    temnewText.id=v[0];
+                    temnewText.class=v[2];
                     temnewText.style.backgroundColor="lightgreen"
+                    
                     temnewText.onclick=()=>{ 
-                        this.requestfunc(v[0],v[2]);
+                         this.requestfunc(v[0],v[2]);
+                        
                     };
-                    newText.appendChild(temnewText);
+                    newText.appendChild(temnewText);  */
 
 
                 }else{
                     newText.innerHTML="Requested";
-                }
+                } 
+                
             }
             else{
                 newText.innerHTML=v[i];
@@ -172,11 +174,17 @@ async displayHouses(currentOwner) {
     }
 }
 
+
 async requestfunc(house_id,owner){
+
+   
+    
+
     var currentOwner= await window.web3.eth.getCoinbase();
-    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['5777'].address);
-    console.log(typeof currentOwner,typeof owner,currentOwner,owner)
-     if(owner.toString().toLowerCase()===currentOwner.toString()){
+    const networkId = await window.web3.eth.net.getId();
+    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks[networkId].address);
+    console.log(currentOwner,owner)
+     if(owner.toString().toLowerCase()==currentOwner.toString()){
 
         alert("You cannot request your own house");
        
@@ -195,7 +203,7 @@ async requestfunc(house_id,owner){
         })
 
      }
-   
+ 
     
 }
 

@@ -9,6 +9,7 @@ import Explore from './components/explore.js'
 import Requests from './components/requests.js'
 
 import logo1 from './logo2.jpeg'
+import footerimg from './house.png'
 import './App.css';
 import Web3 from 'web3';
 
@@ -59,12 +60,12 @@ async loadWeb3(){
 
 async loadBlockchainData() {
   const web3 = window.web3
-  const accounts = await web3.eth.getAccounts()
+  const accounts = await web3.eth.getCoinbase();
   
    
   this.setState({
    
-    currentAccount: accounts[0]
+    currentAccount: accounts,
   })
 
   const networkId = await web3.eth.net.getId()
@@ -73,7 +74,7 @@ async loadBlockchainData() {
   if(networkId) {
     const sch = new web3.eth.Contract(Sch.abi, networkData.address);
 
-      await this.setState({
+       this.setState({
             
       AbiAndAdd:{
         abi:Sch.abi,
@@ -116,21 +117,15 @@ render(){
       
       <div class="header">
           <div class="leftAlign">
-           <a class="leftlinks"><a href="/home" class="allLinkColor"><span><i class="fa fa-home"></i>&nbsp;Home</span></a></a>
+           <a class="leftlinks"><a href="/home" class="allLinkColor"> <span><i class="fa fa-home"></i>&nbsp;Home</span> </a></a>
            <a class="leftlinks"><a href="/addHouse" class="allLinkColor"><span><i class="fa fa-plus"></i>&nbsp;Add House</span></a></a>
            <a class="leftlinks"><a href="/addHistory" class="allLinkColor"><span><i class="fa fa-history"></i>&nbsp;Add History</span></a></a>
-           
+           <a class="leftlinks"> <a href="/myHouses" class="allLinkColor"><span><i class="fa fa-home"></i>&nbsp;My Houses</span></a></a>
+           <a class="leftlinks"><a href="/explore" class="allLinkColor"><span><i class="fa fa-cart-plus"></i>&nbsp;Explore</span></a></a>
+         
           </div>
-          <div class="centreAlign">
-            <a href="/home"><img class="logo" src={logo1}/></a>
+         
           
-          </div>
-          <div class="rightAlign">
-          <a class="rightlinks"><a href="/explore" class="allLinkColor"><span><i class="fa fa-cart-plus"></i>&nbsp;Explore</span></a></a>
-          <a class="rightlinks"><a href="/requests"  class="allLinkColor" > <span><i class="fa fa-bell"></i>&nbsp;Requests</span></a></a>
-          <a class="rightlinks"> <a href="/myHouses" class="allLinkColor"><span><i class="fa fa-home"></i>&nbsp;My Houses</span></a></a>
-            
-          </div>
       </div>
 
   <BrowserRouter>
@@ -179,7 +174,8 @@ render(){
                 </div>
                 <div class="footerintro">
                 <b>Self-Conscious House</b> <br></br>
-                 Maintain your house records with Blockchain
+                 Maintain your house records with Blockchain<br></br>
+                 <img class="footerimg" src={footerimg}></img>
                 
                 </div>
 

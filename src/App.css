@@ -27,8 +27,8 @@
  
 .leftAlign{
   float:left;
-  height: 12vh;
-  width: 46%;
+  height: 5vh;
+ 
  
    
 }
@@ -63,8 +63,8 @@
 	font: 1.125rem 'Oswald', Arial, sans-serif; /*18*/
 	height: 60px;
 	letter-spacing: 1px;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-left: 70px;
+  margin-right: 70px;
   margin-top: 15px;
 	padding: 4px;
   position: relative;
@@ -224,6 +224,11 @@ a:active{
 background-color:#1a1a2e ;
 color:white;
 height: 150px;
+margin-top: 0px;
+}
+.footerimg{
+  width:90px;
+  height:50px;
 }
 .aboutUs{
   float:right;

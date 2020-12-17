@@ -1,7 +1,7 @@
 import React ,{Component} from 'react';
 import '../componentsCSS/addHistory.css';
-import'bootstrap/dist/css/bootstrap.css';
 import Web3 from 'web3';
+import Sch from '../abis/contracts/Sch.json';
 const ipfsClient =require('ipfs-http-client')
 const ipfs=new ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' })
 
@@ -99,8 +99,9 @@ async componentWillMount(){
                    
                     console.log("njds",curraddress);
 
+                    const networkId = await window.web3.eth.net.getId();
 
-                    const sch = new window.web3.eth.Contract(this.props.AbiAndAddress.abi,this.props.AbiAndAddress.add);
+                    const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks[networkId].address);
 
                     sch.methods.addHouseHistory(houseId,title,description,contractorName,currdate,beforeImageHash,afterImageHash).send({from:curraddress},(err,hash)=>{
                         
@@ -109,7 +110,7 @@ async componentWillMount(){
 
                         }
                         else{
-                            alert(hash);
+                            alert("Succes !");
                         }
 
                     })

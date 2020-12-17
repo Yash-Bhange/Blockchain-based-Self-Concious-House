@@ -21897,12 +21897,13 @@
     "3": {
       "events": {},
       "links": {},
-      "address": "0xd6Fda783D563a9EEF4a627331d2F4ae1E7C8bBfd",
-      "transactionHash": "0x466f94be73807c42761545a7bdb122de6c64992c0a838f22c5e012dd3b41539e"
+      "address": "0x530fdc27476AF69c7077b197593c0D23817fCbE3",
+      "transactionHash": "0x973bbd24e56438d49e545743e39feafb04a2ef17063409a5a75fbfeabce2786d"
     }
   },
   "schemaVersion": "3.2.3",
-  "updatedAt": "2020-10-16T09:12:34.052Z",
+  "updatedAt": "2020-11-22T03:12:04.794Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },

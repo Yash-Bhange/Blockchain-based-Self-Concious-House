@@ -1,6 +1,6 @@
 import React ,{Component} from 'react';
 import '../componentsCSS/myHouses.css';
-import'bootstrap/dist/css/bootstrap.css';
+
 import Web3 from 'web3';
 import Sch from '../abis/contracts/Sch.json';
 
@@ -42,7 +42,8 @@ async componentWillMount(){
 
         var currentOwner= await window.web3.eth.getCoinbase();
 
-        const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks['3'].address);    //if ropsten use id as '3'  , if local ganache us ID as '5777'
+        const networkId = await window.web3.eth.net.getId();
+        const sch = new window.web3.eth.Contract(Sch.abi,Sch.networks[networkId].address);    //if ropsten use id as '3'  , if local ganache us ID as '5777'
 
         sch.methods.getHousesByOwner(currentOwner).call({from:currentOwner},(err,res)=>{
             if(err){
