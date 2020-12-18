@@ -24,7 +24,7 @@ class home extends Component{
                   <img class="mainimg" src={pic}></img>
                 <div>
 
-                <span class="text">A Self-Conscious House : <small>Tracking its Lifecycle</small> <br></br>
+                <span class="text">A Self-Conscious House : Tracking its Lifecycle <br></br>
                 <img class="footerimg" src={footerimg}></img> </span> 
                 
                 </div>
