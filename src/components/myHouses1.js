@@ -124,10 +124,10 @@ async componentWillMount(){
             return(   
 
 
-                <div>   
+                <div id='bground'>   
                     
-                    <div id="tablesection">
-                    <table id="table" border="1px"  >
+                    <div id="table-section">
+                    <table class="table1">
                         <tbody>
                             <tr>
                                 <td>ID</td><td>House Name</td><td>Current Owner</td><td>Pin Code</td><td>Address</td><td>Creation Date</td><td>Status</td><td>History Count</td><td>More Info</td>
@@ -143,7 +143,7 @@ async componentWillMount(){
                 </div>
                       
     
-                 </div>    
+                 </div>        
               
             );
     
