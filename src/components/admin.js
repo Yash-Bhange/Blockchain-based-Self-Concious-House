@@ -71,7 +71,7 @@ async loadWeb3(){
 async submit(e){
     e.preventDefault();
 
-    var house_id_string=document.getElementById('').value;
+    var house_id_string=document.getElementById('houseid').value;
     var house_id_number=parseInt(house_id_string);
 
     var currentOwner= await window.web3.eth.getCoinbase();
@@ -101,6 +101,10 @@ async submit(e){
                 <div id="cantainer">
                 
                      create form here !
+                     <form onSubmit={this.submit}>
+                         <input type="number" id="houseid" placeholder="Enter house ID" required></input>
+                         <button type="submit">Verify</button>
+                     </form>
                 
                 </div>
 
