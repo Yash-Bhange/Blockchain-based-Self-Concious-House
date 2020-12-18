@@ -1,5 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
 
+#background-2{
+  background-image: url(../components/house4.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 1000px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
 
 .searchbar {
@@ -42,8 +49,52 @@
 }
 #tablesection{
   min-height: 500px;
- 
+  margin-left: 165px;
 }
-#table{
- 
+.tableContent{
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9em;
+      min-width: 400px;
+      left: 200px;
 }
+
+.tableContent tr{
+  background-color: #009879;
+  color: white;
+  font-weight: bold;  
+}
+
+.tableContent th,.tableContent td{
+      padding: 12px 15px;
+}
+
+.tableContent tbody tr{
+  border-bottom: 1px solid #dddddd;
+}
+
+.tableContent tbody tr:nth-of-type(even){
+  background-color: #f3f3f3;
+}
+
+.tableContent tbody tr:last-of-type{
+  border-bottom: 2px solid #009879;
+}
+
+
+#find{
+  background-color: #79f1e1;
+    display: block;
+    margin: 20px 0px 0px 20px;
+    text-align: center;
+    border-radius: 12px;
+    border: 2px solid #95d8ee;
+    padding: 14px 110px;
+    outline: none;
+    color: rgb(34, 32, 32);
+    cursor: pointer;
+    transition: 0,25px;
+    position: relative; 
+    left: 535px;
+}
+
