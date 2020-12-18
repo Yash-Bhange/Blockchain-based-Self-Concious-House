@@ -138,7 +138,7 @@ async displayHouses(currentOwner) {
                 
                 if(v[i]==0){ 
 
-                    newText.innerHTML="Available";
+                    newText.innerHTML="Unverified";
                     /*var temnewText=document.createElement('BUTTON');
                     temnewText.innerHTML="click to Request";
                     temnewText.key=v[0];
@@ -154,7 +154,7 @@ async displayHouses(currentOwner) {
 
 
                 }else{
-                    newText.innerHTML="Requested";
+                    newText.innerHTML="Verified";
                 } 
                 
             }

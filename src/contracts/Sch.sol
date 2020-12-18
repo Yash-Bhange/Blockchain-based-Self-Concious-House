@@ -6,6 +6,7 @@ contract Sch {
  
  uint public houseCount;
  uint public historyCount;
+ address public organiser;
 
 
  
@@ -73,6 +74,7 @@ constructor() public{
     
     historyCount=0;
     houseCount=0;
+    organiser = msg.sender;
     
     
    
@@ -271,6 +273,13 @@ function disAgreeHouse(uint _houseId,address _newOwner,uint256 hd)public {
              outgoingstruct.dateOfReq=hd;
         }
     }
+
+}
+
+function changeStatus(uint _houseId)public{
+
+     House storage _temHouse=house[_houseId];
+     _temHouse.houseStatus=HouseStatus.Requested;
 
 }
 

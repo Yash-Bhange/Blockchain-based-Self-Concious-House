@@ -96,9 +96,9 @@ async componentWillMount(){
             }else if(i==6){
                 
                 if(v[i]==0){
-                    newText.innerHTML="Available";
+                    newText.innerHTML="Unverified";
                 }else{
-                    newText.innerHTML="Requested";
+                    newText.innerHTML="Verified";
                 }
             }
             else{

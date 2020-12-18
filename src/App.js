@@ -7,6 +7,7 @@ import  MyHouses1 from './components/myHouses1.js'
 import  ViewHistory from './components/viewHistory.js'
 import Explore from './components/explore.js'
 import Requests from './components/requests.js'
+import Admin from './components/admin.js'
 
 import logo1 from './logo2.jpeg'
 import footerimg from './h1.png'
@@ -122,6 +123,7 @@ render(){
            <a class="leftlinks"><a href="/addHistory" class="allLinkColor"><span><i class="fa fa-history"></i>&nbsp;Add History</span></a></a>
            <a class="leftlinks"> <a href="/myHouses" class="allLinkColor"><span><i class="fa fa-home"></i>&nbsp;My Houses</span></a></a>
            <a class="leftlinks"><a href="/explore" class="allLinkColor"><span><i class="fa fa-cart-plus"></i>&nbsp;Explore</span></a></a>
+           <a class="leftlinks"><a href="/admin" class="allLinkColor"><span><i class="fa fa-user"></i>&nbsp;Admin</span></a></a>
          
           </div>
          
@@ -138,6 +140,7 @@ render(){
          <Route exact path="/requests" component={()=><Requests AbiAndAddress={this.state.AbiAndAdd}/>} />
          <Route exact path="/viewHistory/:houseId"  component={()=><ViewHistory AbiAndAddress={this.state.AbiAndAdd}/>}  />
          <Route exact path="/explore" component={()=>< Explore accounts={this.state.account}/>} />
+         <Route exact path="/admin" component={()=>< Admin accounts={this.state.account}/>} />
          <Redirect to="/home" />
          
           
