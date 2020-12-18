@@ -1,8 +1,10 @@
 import React ,{Component} from 'react';
 import '../componentsCSS/home.css';
 import pic from '../r1.jpg'
-
+import HeroSection from './HeroSection';
 import footerimg from '../house.png'
+import Cards from './Cards.js'
+
 
 
 
@@ -21,11 +23,10 @@ class home extends Component{
         return(  
           
                 <div>
-                  <img class="mainimg" src={pic}></img>
-                <div>
+                  <HeroSection/>
+                  <Cards/>
+                  <img class="footerimg" src={footerimg}></img>  
 
-                <span class="text">A Self-Conscious House : <small>Tracking its Lifecycle</small> <br></br>
-                <img class="footerimg" src={footerimg}></img> </span> 
                 
                 </div>
                 
