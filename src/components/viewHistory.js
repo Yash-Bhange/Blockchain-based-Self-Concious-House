@@ -90,6 +90,8 @@ displayHistory() {
         const table=document.getElementById('table').getElementsByTagName('tbody')[0];
        // console.log("1",v);
          var row=table.insertRow();
+         row.style.backgroundColor="#f3f3f3"
+         row.style.color="black"
          var i=0;
          for(;i<7;i++)
          { 

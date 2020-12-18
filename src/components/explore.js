@@ -124,6 +124,8 @@ async displayHouses(currentOwner) {
      for(var v of houses){
        
          var row=table.insertRow();
+         row.style.backgroundColor="#f3f3f3"
+         row.style.color="black"
          for(var i=0;i<8;i++)
          {  
            
@@ -216,8 +218,8 @@ async requestfunc(house_id,owner){
             <div id='background-2'>
             <div id="container">
                         <div class="search">
-                            <input type="text" placeholder="Pincode , Owner account hash"  name="search" class="searchbar" id="searchValue"/>
-                            <span id="buttonalign"> <button id="find" type="submit" onClick={this.go}><i class="fa fa-search"></i></button></span>
+                            <input type="text" placeholder="Pincode , Owner account hash"  name="search" class="searchbar" id="searchValue"/>  
+                            <button id="find" type="submit" onClick={this.go}><i class="fa fa-search"></i></button>
                         </div>
             </div>
 

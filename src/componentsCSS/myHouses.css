@@ -45,6 +45,7 @@ font-weight: bold;
 .table1 th,.table1 td{
     padding: 12px 15px;
     
+    
 }
 
 .table1 tbody tr{
@@ -59,3 +60,4 @@ color:black
 .table1 tbody tr:last-of-type{
 border-bottom: 2px solid #380468;
 }
+

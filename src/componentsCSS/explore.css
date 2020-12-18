@@ -15,7 +15,7 @@
   padding: 10px;
   width: 250px;
   margin-top:40px;
-  text-align: center;
+  
   margin-bottom: 20px;
   border: solid #c8ccd0 1px;
   border-radius: 5px 0px 0px 5px;
@@ -36,19 +36,7 @@
   width: 280px;
 }
 
-.search_button {
-  height: 38px;
-  margin-left: -4px;
-  width: 70px;
-  border: solid #c8ccd0 1px;
-  border-radius: 0px 5px 5px 0px;
-  border-left: 0;
-  transition: 400ms ease-out;
-}
 
-.search_button:hover {
-  background-color: hsl(0, 0%, 85%);
-}
 #tablesection{
   min-height: 500px;
   
@@ -93,10 +81,11 @@
     border-radius: 12px;
     border: 2px solid #95d8ee;
     padding: 14px 110px;
-    outline: none;
     color: rgb(34, 32, 32);
     cursor: pointer;
     transition: 0,25px;
+    margin-inline: 26%;
+   
   
    
 }

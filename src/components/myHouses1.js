@@ -83,6 +83,9 @@ async componentWillMount(){
         const table=document.getElementById('table2').getElementsByTagName('tbody')[0];
         console.log("1",v);
          var row=table.insertRow();
+         row.className = "rowdiv";
+         row.style.backgroundColor="#f3f3f3"
+         row.style.color="black"
          for(var i=0;i<8;i++)
          {
             var col=row.insertCell(i);
