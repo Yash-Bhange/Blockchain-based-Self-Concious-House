@@ -1,7 +1,3 @@
-table,tbody{
-    border:1px solid black;
-
-}
 td{
     padding: 2px 2px 2px 2px;
     text-align: center;
@@ -12,6 +8,46 @@ a.link{
 a.hover{
     color:black
 }
-#tablesection{
+#table-section{
     min-height: 500px;
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
+#bground{
+    background-image: url(../components/house3.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 1000px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  .tableContent{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    left: 200px;
+}
+
+.table1 tr{
+background-color: #380468;
+color: white;
+font-weight: bold;  
+}
+
+.table1 th,.table1 td{
+    padding: 12px 15px;
+}
+
+.table1 tbody tr{
+border-bottom: 1px solid #dddddd;
+}
+
+.table1 tbody tr:nth-of-type(even){
+background-color: #f3f3f3;
+}
+
+.table1 tbody tr:last-of-type{
+border-bottom: 2px solid #380468;
 }
