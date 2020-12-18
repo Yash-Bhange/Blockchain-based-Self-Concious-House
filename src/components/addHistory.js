@@ -126,42 +126,39 @@ async componentWillMount(){
     render(){
 
         return(  
-            <div>   
-                <div id="topSpace">
+            <div id="back-ground-span1">   
+             <div id="topSpace">
 
-                </div>
-                <div id="addForm">
+             </div>
+            <div><p id="title-form">ADD HISTORY</p> </div>   
+            <div id="addHistory">
 
-                   <form onSubmit={this.submit}> 
-                       <fieldset>
-                       
-                                <label >House Id : </label>
-                                <input type="number" id="houseId" placeholder="Enter house Id"  required/> <br></br>
-                            
-                                <label>Title: </label>
-                                <input  type="text" id="title"  placeholder="Enter title" required/>  <br></br><br></br>
-                                <label>Description : </label>
-                                <textarea id="description"  placeholder="Enter description" required></textarea> <br></br><br></br>
-                                <label>Contractor name: </label>
-                                <input  type="text" id="contractorName"  placeholder="Enter contractor name" required/>  <br></br><br></br>
-                                <label>Before image: </label>
-                                <input type="file" id="beforeImage" accept="image/*" onChange={this.captureFile1}></input> <br></br><br></br>
-                                <label>After image: </label>
-                                <input type="file" id="afterImage" accept="image/*" onChange={this.captureFile2}></input> <br></br><br></br>
-
-
-
-
-                                <button type="submit" >Add</button>
-                       </fieldset>
-                        
-                    </form>
-                    
-                </div>
+             <form onSubmit={this.submit}> 
+                 <fieldset>
+                 <div id="main1">
+                          <label class="field2">House Id : </label>
+                          <input type="number" id="houseId" placeholder="Enter house Id"  required/> <br></br>
+                      
+                          <label class="field2">Title: </label>
+                          <input  type="text" id="title"  placeholder="Enter title" required/>  <br></br><br></br>
+                          <label class="field2">Description : </label>
+                          <textarea id="description"  placeholder="Enter description" required></textarea> <br></br><br></br>
+                          <label class="field2">Contractor name: </label>
+                          <input  type="text" id="contractorName"  placeholder="Enter contractor name" required/>  <br></br><br></br>
+                          <label class="field2">Before image: </label>
+                          <input type="file" id="beforeImage" accept="image/*" onChange={this.captureFile1}></input> <br></br><br></br>
+                          <label class="field2">After image: </label>
+                          <input type="file" id="afterImage" accept="image/*" onChange={this.captureFile2}></input> <br></br><br></br>
+                          <button type="submit" >Add</button>
+                      </div>
+                 </fieldset>
                   
+              </form>
+              
+          </div>
+            
 
-             </div>    
-          
+        </div>    
         );
             
         
