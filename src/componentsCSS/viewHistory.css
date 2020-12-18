@@ -1,7 +1,55 @@
 #heading{
-
     font-size: large;
 }
 #tablesection{
     min-height: 500px;
+    margin-top: 30px;
+    text-align: center;
 }
+
+#page-title{
+    font-size: 36px;
+    color: white;
+}
+
+#back-g{
+    background-image: url(../components/lroom.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 1000px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.tableContent{
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.9em;
+    min-width: 400px;
+    left: 200px;
+}
+
+.tableHistory tr{
+background-color: #380468;
+color: white;
+font-weight: bold;  
+}
+
+.tableHistory th,.tableHistory td{
+    padding: 12px 15px;
+    
+}
+
+.tableHistory tbody tr{
+border-bottom: 1px solid #dddddd;
+}
+
+.tableHistory tbody tr:nth-of-type(even){
+background-color: #f3f3f3;
+color:black
+}
+
+.tableHistory tbody tr:last-of-type{
+border-bottom: 2px solid #380468;
+}
+
