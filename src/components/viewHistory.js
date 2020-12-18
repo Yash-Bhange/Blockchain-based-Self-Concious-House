@@ -135,11 +135,11 @@ displayHistory() {
     render(){
 
         return(  
-            <div>   
+            <div id="back-g">   
                 <div id="topSpace">
 
                 </div>
-                <div>
+                <div id="page-title">
                 
                         House Id : {this.state.houseid}
                 
@@ -151,7 +151,7 @@ displayHistory() {
                 </div>
                 <div id="tablesection">
 
-                <table id="table" border="1px" >
+                <table id="table" class="tableHistory">
                         <tbody>
                             <tr id="heading">
                             <td>History ID</td> <td>House ID</td><td>Current Owner</td><td>Title</td><td>Description</td><td>Contarctor </td><td>Creation Date</td><td>Before Image</td><td>After Image</td>
@@ -159,8 +159,6 @@ displayHistory() {
 
                         </tbody>
                         {this.displayHistory()}
-
-
                     </table >
 
                        
@@ -168,7 +166,6 @@ displayHistory() {
                   
 
              </div>    
-          
         );
             
         
