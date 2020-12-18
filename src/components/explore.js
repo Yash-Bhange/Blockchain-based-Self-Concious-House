@@ -213,39 +213,32 @@ async requestfunc(house_id,owner){
 
         return(  
 
-            <div>
-
-         
-           
-
+            <div id='background-2'>
             <div id="container">
                         <div class="search">
                             <input type="text" placeholder="Pincode , Owner account hash"  name="search" class="searchbar" id="searchValue"/>
-                            <button type="submit" class="search_button" onClick={this.go}><i class="fa fa-search"></i></button>
+                            <button id="find" type="submit" onClick={this.go}><i class="fa fa-search"></i></button>
                         </div>
             </div>
 
 
             <div id="tablesection">
-            <table id="table" border="1px" >
-                        <tbody>
-                          
-                          <tr>
-                                <td>ID</td><td>House Name</td><td>Current Owner</td><td>Pin Code</td><td>Address</td><td>Creation Date</td><td>Status</td><td>History Count</td><td>More Info</td> 
+            <table class="tableContent" >
+                        <tbody>                   
+                          <tr id='heading'>
+                                <td>ID</td>
+                                <td>House Name</td>
+                                <td>Current Owner</td>
+                                <td>Pin Code</td>
+                                <td>Address</td>
+                                <td>Creation Date</td>
+                                <td>Status</td>
+                                <td>History Count</td>
+                                <td>More Info</td> 
                           </tr>
                         </tbody>
-                        
-
-
                     </table>
-            </div>
-
-
-
-
-
-
-               
+            </div>               
             </div>
 
         );
