@@ -117,36 +117,36 @@ async componentWillMount(){
     render(){
 
         return(  
-            <div>   
-                <div id="topSpace">
+            <div id="back-ground-span">   
+          <div id="topSpace">
 
-                </div>
-                <div id="addForm">
+          </div>
+          <div><p id="title-form">ADD HOUSE</p> </div>              
+               <div id="addForm">
+             <form onSubmit={this.submit}> 
+               
+                      <div id="main">
+                          <label class="field1">House Name : </label>
+                          
+                          <input type="text" id="houseName" placeholder="Enter house name"  required/> <br></br>
+                      
+                          <label class="field1">House PinCode: </label>
+                          <input  type="text" id="pinCode"  placeholder="Enter Pincode" required/>  <br></br><br></br>
+                          <label class="field1">House Address: </label>
+                          <textarea id="address"  placeholder="Enter Address" required cols="40"></textarea> <br></br><br></br>
 
-                   <form onSubmit={this.submit}> 
-                       <fieldset>
-                       
-                                <label >House Name : </label>
-                                
-                                <input type="text" id="houseName" placeholder="Enter house name"  required/> <br></br>
-                            
-                                <label>House PinCode: </label>
-                                <input  type="text" id="pinCode"  placeholder="Enter Pincode" required/>  <br></br><br></br>
-                                <label>House Address: </label>
-                                <textarea id="address"  placeholder="Enter Address" required></textarea> <br></br><br></br>
-
-                                <label>House Image: </label>
-                                <input type="file" id="houseImage" accept="image/*" onChange={this.captureFile}></input> <br></br><br></br>
-                                <button type="submit" >Add</button>
-                       </fieldset>
-                        
-                    </form>
-                    
-                </div>
+                          <label class="field1">House Image: </label>
+                          <input type="file" id="houseImage" accept="image/*" onChange={this.captureFile}></input> <br></br><br></br>
+                          <button type="submit" id="addHSubmit">Add</button>
+                          </div>
+  
                   
+              </form>
+              
+          </div>
+            
 
-             </div>    
-          
+       </div>    
         );
             
         

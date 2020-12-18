@@ -9,7 +9,7 @@ import Explore from './components/explore.js'
 import Requests from './components/requests.js'
 
 import logo1 from './logo2.jpeg'
-import footerimg from './house.png'
+import footerimg from './h1.png'
 import './App.css';
 import Web3 from 'web3';
 

@@ -1,3 +1,119 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#back-ground-span{
+    background-image: url(../components/House1.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 900px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 #addForm{
     min-height: 450px;
+    background-color: rgb(0,0,0,0.5);
+    width: 800px;
+    margin: auto;
+    height: 630px;
+    border-radius:  0px 0px 15px 15px;
+}
+
+#title-form{
+    width: 800px;
+    background-color: rgb(0,0,0,0.6);
+    margin: auto;
+    color: #ffffff;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+form{
+    padding: 10px;
+}
+
+#main{
+    width: 100%;
+    margin-left: 25px;
+    margin-top: 30px;
+    width: 125px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700px;
+}
+
+#houseName{
+    position: relative;
+    left: 200px;
+    top: -37px;
+    line-height: 40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+}
+
+#pinCode{
+    position: relative;
+    left: 200px;
+    top: -37px;
+    line-height: 40px;  
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+    color: #555;
+}
+
+#address{
+    position: relative;
+    left: 200px;
+    top: -37px;
+    line-height: 40px;
+    width: 500px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+    color: #555;
+}
+
+#houseImage{
+    position: relative;
+    left: 200px;
+    top: -37px;
+    line-height: 40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+#addHSubmit{
+    background-color: #79f1e1;
+    display: block;
+    margin: 20px 0px 0px 20px;
+    text-align: center;
+    border-radius: 12px;
+    border: 2px solid #95d8ee;
+    padding: 14px 110px;
+    outline: none;
+    color: rgb(34, 32, 32);
+    cursor: pointer;
+    transition: 0,25px;
+    position: relative; 
+    left: 250px;
+}
+
+button:hover{
+    background-color: #5390F5;
+}
+
+.field1{
+    font-size: 20px;
+    font-weight: 4px;
+    position: relative;
+    width: 200px;
+
 }

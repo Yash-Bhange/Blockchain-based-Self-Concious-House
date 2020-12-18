@@ -80,7 +80,7 @@ async componentWillMount(){
 
      for(var v of houses){
         
-        const table=document.getElementById('table').getElementsByTagName('tbody')[0];
+        const table=document.getElementById('table2').getElementsByTagName('tbody')[0];
         console.log("1",v);
          var row=table.insertRow();
          for(var i=0;i<8;i++)
@@ -124,10 +124,10 @@ async componentWillMount(){
             return(   
 
 
-                <div>   
+                <div id='bground'>   
                     
-                    <div id="tablesection">
-                    <table id="table" border="1px"  >
+                    <div id="table-section">
+                    <table class="table1" id="table2">
                         <tbody>
                             <tr>
                                 <td>ID</td><td>House Name</td><td>Current Owner</td><td>Pin Code</td><td>Address</td><td>Creation Date</td><td>Status</td><td>History Count</td><td>More Info</td>
@@ -143,7 +143,7 @@ async componentWillMount(){
                 </div>
                       
     
-                 </div>    
+                 </div>        
               
             );
     
