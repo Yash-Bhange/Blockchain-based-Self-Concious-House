@@ -1,4 +1,83 @@
-#cantainer{
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#screen{
+    background-color: rgb(194, 247, 229);
+    background-position: center;
+    background-size: cover;
+    height: 900px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#verification{
+    width: 800px;
+    background-color: rgb(0,0,0,0.6);
+    margin: auto;
+    color: #ffffff;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+#container{
     min-height: 500px;
     text-align: center;
+    min-height: 450px;
+    background-color: rgb(0,0,0,0.5);
+    width: 800px;
+    margin: auto;
+    border-radius:  0px 0px 15px 15px;
 }
+
+#the-form{
+    width: 100%;
+    margin-left: 25px;
+    margin-top: 30px;
+    width: 125px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700px;
+}
+
+.HID{
+    font-size: 20px;
+    font-weight: 4px;
+    position: relative;
+    width: 200px;
+
+}
+
+#houseid{
+    position: relative;
+    left: 200px;
+    top: -37px;
+    line-height: 40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+}
+
+#check{
+    background-color: #79f1e1;
+    display: block;
+    margin: 20px 0px 0px 20px;
+    text-align: center;
+    border-radius: 12px;
+    border: 2px solid #95d8ee;
+    padding: 14px 110px;
+    outline: none;
+    color: rgb(34, 32, 32);
+    cursor: pointer;
+    transition: 0,25px;
+    position: relative; 
+    left: 250px;
+}
+
+button:hover{
+    background-color: #5390F5;
+}
+
