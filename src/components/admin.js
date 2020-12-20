@@ -55,8 +55,8 @@ async loadWeb3(){
      
            if(res.toLowerCase()!=currentOwner.toLowerCase()){
       
-              //window.alert("Normal users are not allowed !");
-              //window.location.href="/home"
+              window.alert("Normal users are not allowed !");
+              window.location.href="/home"
            }
 
         }
@@ -84,6 +84,7 @@ async submit(e){
 
     
           window.alert("success");
+
  
         }
 
@@ -99,10 +100,10 @@ async submit(e){
         return(  
                <div id="screen">   
                 <div id="top-Space">
-      
+                        <br></br> <br></br>
                 </div>
-                <div><p id="verification">VERIFICATION:</p> </div>              
-                     <div id="container">
+                <div><p id="verification">VERIFICATION</p> </div>              
+                     <div id="container1">
                         <form onSubmit={this.submit}> 
                      
                                 <div id="the-form">

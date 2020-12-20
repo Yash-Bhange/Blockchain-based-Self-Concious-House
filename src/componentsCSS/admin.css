@@ -23,7 +23,7 @@
     font-weight: bolder;
 }
 
-#container{
+#container1{
     min-height: 500px;
     text-align: center;
     min-height: 450px;
@@ -53,7 +53,7 @@
 
 #houseid{
     position: relative;
-    left: 200px;
+    left: 260px;
     top: -37px;
     line-height: 40px;
     border-radius: 6px;
@@ -64,7 +64,7 @@
 #check{
     background-color: #79f1e1;
     display: block;
-    margin: 20px 0px 0px 20px;
+    margin: 70px 0px 0px 20px;
     text-align: center;
     border-radius: 12px;
     border: 2px solid #95d8ee;
@@ -74,7 +74,7 @@
     cursor: pointer;
     transition: 0,25px;
     position: relative; 
-    left: 250px;
+    left: 230px;
 }
 
 button:hover{
