@@ -97,24 +97,29 @@ async submit(e){
     render(){
 
         return(  
-               
-                <div id="cantainer">
-                
-                     create form here !
-                     <form onSubmit={this.submit}>
-                         <input type="number" id="houseid" placeholder="Enter house ID" required></input>
-                         <button type="submit">Verify</button>
-                     </form>
-                
+               <div id="screen">   
+                <div id="top-Space">
+      
                 </div>
-
-               
-                
-                
-              
-
-              
-          
+                <div><p id="verification">VERIFICATION:</p> </div>              
+                     <div id="container">
+                        <form onSubmit={this.submit}> 
+                     
+                                <div id="the-form">
+                                  <label class="HID">House ID : </label>
+                                  <input type="number" id="houseid" placeholder="Enter House ID" required></input>
+                                  <button type="submit" id="check">Verify</button>
+                                
+                                </div>
+        
+                        
+                        </form>
+                    
+                </div>
+                  
+      
+             </div>    
+                       
         );
             
         
